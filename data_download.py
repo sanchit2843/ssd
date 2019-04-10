@@ -1,6 +1,11 @@
 import xml.etree.ElementTree as ET
-data = []
 from tqdm import tqdm
+
+tree = ET.parse('../input/voc2012/VOC2012/Annotations/2009_001205.xml')
+root = tree.getroot()
+print(ET.tostring(root, encoding='utf8').decode('utf8'))
+root_dir = '../input/voc2012/VOC2012/Annotations/'
+data = []
 for i in tqdm(os.listdir(root_dir)):
     path = os.path.join(root_dir,i)
     tree = ET.parse(path)
